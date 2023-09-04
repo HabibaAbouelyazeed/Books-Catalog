@@ -2,12 +2,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Software Books Catalog</title>
 </head>
 <body>
-   
+    <header></header>
+    <nav class="nav-bar">
+        <div class="search-bar">
+            <input type="text" name="searchInpt" id="searchInpt" placeholder="Search by keyword...">
+            <div class="search-btn">
+                <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #000000;"></i>
+            </div>
+        </div>
+
+        <article id="banner-holder">
+            <div class="banner-slider">
+                <img src="assets/books-banner1.png" alt="banner" id="promotion-banner" class="image-fluid">
+            </div>
+
+            <div id="dot-holder"></div>
+        </article>
+    </nav>
+
+    <main>
+        <div id="booksCardsHolder"></div>
+    </main>
     
-    <script src="./script.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
