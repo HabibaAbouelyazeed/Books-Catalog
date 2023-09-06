@@ -4,6 +4,36 @@
     --buttonHover:  rgba(121,9,9,1);
     --cardColor: #FBF8F5;
     --cardColorHover: #cfcfcf;
+    --sectionColor: rgba(131, 120, 120, 0.589);
+}
+
+
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/fonts/Roboto-Italic.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/fonts/Roboto-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../assets/fonts/Roboto-Light.ttf);
+    font-weight: light;
 }
 
 *{
@@ -11,9 +41,13 @@
     padding: 0;
 }
 
+body{
+    font-family: Roboto;
+    position: relative;
+}
 
 .image-fluid{
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -40,11 +74,25 @@ a{
     border-radius: 20px;
 }
 
+.container{
+    width: 90vw;
+    margin: auto;
+}
+
 header{
+    margin-bottom: 1rem;
     padding: 1rem;
     background-image: var(--gradColor);
 }
 
+footer{
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+    /* position: absolute;
+    bottom: 0; */
+    background-image: var(--gradColor);
+}
 
 /* NavBar ==> START */
 nav{
@@ -214,3 +262,77 @@ main{
 } */
 
 /* Main ==>END */
+
+
+
+
+/* Book Details Page ==>START */
+#bookDetailsSec{
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+}
+#bookDetailsSec .main-info{
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+#bookDetailsSec .bookImage{
+    width: 40%;
+    margin-right: 2rem;
+    padding: 1rem 0;
+}
+
+
+#bookDetailsSec .info .book-description{
+    margin-top: 2rem;
+    line-height: 1.8;
+}
+
+#bookDetailsSec .book-authors{
+    padding: 2rem 0;
+    background-color: var(--sectionColor);
+}
+
+#bookDetailsSec .book-authors .authors-list{
+    list-style: none;
+    display: flex;
+}
+
+#bookDetailsSec .authors-list li{
+    margin-right: 3rem;
+}
+
+#bookDetailsSec .extra-info{
+    margin-top: 1rem;
+}
+
+/* #bookDetailsSec .extra-info h3{
+    margin-top: 2rem;
+} */
+
+#bookDetailsSec .extra-info div{
+    padding: 2rem 0;
+}
+
+#bookDetailsSec .extra-info .published-date{
+    background-color: var(--sectionColor);
+}
+
+
+.return-btn{
+    width: 20rem;
+    margin: auto;
+    
+}
+/* Book Details Page ==>END */
+
+
+
+
+
+
+
+
+
