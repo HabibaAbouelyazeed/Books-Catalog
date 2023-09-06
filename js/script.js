@@ -18,12 +18,13 @@ let data = [];
 let currentbookID = "";
 
 if (document.body.id === "indexPage") {
-  // onPageLoad();
-
   searchBtn.addEventListener("click", function () {
     if (searchInpt.value.trim().length > 0) {
       searchInpt.value = searchInpt.value.trim();
       searchQuery = formatSearchQuery(searchInpt.value);
+
+      booksCardsHolderDiv.innerHTML = '';
+      booksCardsHolderDiv.appendChild(renderLoader());
 
       xhr.open("GET", `${ApiBasicPart}${searchQuery}`);
       xhr.responseType = "json";
@@ -42,7 +43,8 @@ if (document.body.id === "indexPage") {
       };
 
       xhr.onprogress = function (event) {
-        booksCardsHolderDiv.innerHTML = "<p>Loading ... </p>";
+        booksCardsHolderDiv.innerHTML = '';
+        booksCardsHolderDiv.appendChild(renderLoader());
       };
 
       xhr.onerror = function () {
@@ -60,6 +62,10 @@ function onPageLoad() {
   setInterval(function () {
     slideShow();
   }, 3500);
+
+  booksCardsHolderDiv.innerHTML = '';
+  booksCardsHolderDiv.appendChild(renderLoader());
+
   xhr.open("GET", `${ApiBasicPart}${searchQuery}`);
 
   xhr.responseType = "json";
@@ -79,7 +85,8 @@ function onPageLoad() {
     }
   };
   xhr.onprogress = function (event) {
-    booksCardsHolderDiv.innerHTML = "<p>Loading ... </p>";
+    booksCardsHolderDiv.innerHTML = '';
+    booksCardsHolderDiv.appendChild(renderLoader());
   };
   xhr.onerror = function () {
     alert("Request failed");
@@ -128,15 +135,6 @@ function goToDetailsPage(book) {
   document.location.href = redirectUrl;
 }
 
-// function getBookID(book){
-//   let bookID = book.getAttribute('data-info');
-//   currentbookID = bookID
-//   // return bookID;
-// }
-
-// function retriveBookData(){
-//   console.log(currentbookID);
-// }
 
 function formatSearchQuery(queryString) {
   let formatedString = "";
@@ -179,6 +177,8 @@ function onDetailsPageLoad() {
   let extractedId = extractUrlId();
   let bookUrl = "https://www.googleapis.com/books/v1/volumes/" + extractedId;
 
+  bookDetailsSecDiv.innerHTML = '';
+  bookDetailsSecDiv.appendChild(renderLoader());
   
   xhr.open("GET", bookUrl);
   xhr.responseType = "json";
@@ -190,13 +190,13 @@ function onDetailsPageLoad() {
     } else {
       bookDetailsSecDiv.innerHTML = "";
       data = xhr.response;
-      console.log(data);
       bookDetailsSecDiv.innerHTML = renderBookDetails(data);
     }
   };
 
   xhr.onprogress = function (event) {
-    bookDetailsSecDiv.innerHTML = "<p>Loading ... </p>";
+    bookDetailsSecDiv.innerHTML = '';
+    bookDetailsSecDiv.appendChild(renderLoader());
   };
 
   xhr.onerror = function () {
@@ -265,3 +265,32 @@ function extractUrlId() {
   let extractedId = url.split("?")[1].split("=")[1];
   return extractedId;
 }
+
+
+// Loader
+
+function animateLoader(loaderHolder){
+  let index = 0;
+  setInterval(function () {
+      loaderHolder.children[index++].classList.remove("active-marble");
+      if (index >= loaderHolder.children.length) {
+        index = 0;
+      }
+      loaderHolder.children[index].classList.add("active-marble");
+  }, 700);
+}
+
+function renderLoader(){
+  let loaderHolder = document.createElement("div");
+  loaderHolder.classList.add("loader-holder");
+  loaderHolder.innerHTML = `
+  <div class="loader-marble active-marble"></div>
+  <div class="loader-marble"></div>
+  <div class="loader-marble"></div>
+  <div class="loader-marble"></div>
+  <div class="loader-marble"></div>
+  `;
+  animateLoader(loaderHolder);
+  return loaderHolder;
+}
+

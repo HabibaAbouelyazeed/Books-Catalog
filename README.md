@@ -5,7 +5,11 @@
 ## Tools & Tech
 
 .HTML
+
 .CSS
+
 .Vanilla JS
+
 .Google Books API
+
 .AJAX

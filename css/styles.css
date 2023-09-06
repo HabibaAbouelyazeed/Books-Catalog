@@ -5,6 +5,8 @@
     --cardColor: #FBF8F5;
     --cardColorHover: #cfcfcf;
     --sectionColor: rgba(131, 120, 120, 0.589);
+    --loaderMarbleColor: rgb(141, 141, 141);
+    --activeLoaderMarble: rgb(61, 61, 61);
 }
 
 
@@ -327,6 +329,30 @@ main{
     
 }
 /* Book Details Page ==>END */
+
+
+
+
+/* loader ==>START */
+.loader-holder{
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.loader-marble{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--loaderMarbleColor);
+}
+
+.active-marble{
+    background-color: var(--activeLoaderMarble);
+}
+/* loader ==>END */
 
 
 
