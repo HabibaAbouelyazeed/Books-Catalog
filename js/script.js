@@ -5,8 +5,8 @@ const searchBtn = document.querySelector(".search-bar .search-btn");
 const booksCardsHolderDiv = document.querySelector("#booksCardsHolder");
 
 const bannerImagesSRC = [
-  "../assets/books-banner1.png",
-  "../assets/books-banner2.png",
+  "./assets/books-banner1.png",
+  "./assets/books-banner2.png",
 ];
 const ApiBasicPart = "https://www.googleapis.com/books/v1/volumes?q=";
 let searchQuery = "software+development";
