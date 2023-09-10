@@ -4,7 +4,6 @@ const searchInpt = document.querySelector("#searchInpt");
 const searchBtn = document.querySelector(".search-bar .search-btn");
 const booksCardsHolderDiv = document.querySelector("#booksCardsHolder");
 const cartItemsNumberP = document.querySelector("#cartItemsNumber");
-// const addToCartBtnDiv = document.querySelector(".addToCart-btn");
 
 const bannerImagesSRC = [
   "assets/books-banner1.png",
